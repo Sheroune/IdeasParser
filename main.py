@@ -12,6 +12,3 @@ ut.parse_eu4Ideas(ideanames)
 con = sl.connect('Goose.db')
 df = pd.read_csv('output/All_ideas.csv', sep=";")
 df.to_sql('EU4IDEAS', con)
-
-
-

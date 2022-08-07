@@ -110,11 +110,14 @@ def parse_eu4Ideas(ideanames):
                     for MODIFIER in range(len(df.index)):
                         if str(df['MODIFIER'][MODIFIER]) in idea_temp:
                             old = str(df['MODIFIER'][MODIFIER])
-                            new = f"{str(df['Emote'][MODIFIER])} {str(df['Translation'][MODIFIER])}"
+                            # new = f"{str(df['Emote'][MODIFIER])} {str(df['Translation'][MODIFIER])}"
+                            some_shit = "*".join(f"{str(df['Translation'][MODIFIER])}".split(" "))
+
+                            new = f"{str(df['Emote'][MODIFIER])} {some_shit}"
                             idea_temp = re.sub(r'\b' + old + r'\b', new, idea_temp)
 
                     idea_temp = idea_temp.replace("  && ", "")
-                    # idea_temp = idea_temp.replace("_", " ")
+                    idea_temp = idea_temp.replace("*", " ")
 
                     amount_of_ideas_in_file += 1
                     output += f"{name};{idea_temp}\n"
